@@ -12,7 +12,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "https://roketo.cloud"
+        origin: "https://www.roketo.cloud"
     }
 });
 const PORT = process.env.PORT || 8000;

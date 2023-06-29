@@ -3,9 +3,9 @@ export const sampleEndpointValue = {
     headers: {
         'Content-Type': 'application/json'
     },
-    body: {
+    body: JSON.stringify({
         "message": "Hello Houston, Roketo 🚀 takeoff confirmed!"
-    },
+    }),
     path: "/",
     statusCode: 200
 };

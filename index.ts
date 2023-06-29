@@ -85,7 +85,6 @@ app.get('/collections/:collectionId', async (req, res) => {
 
 app.post("/collections/", async (req, res) => {
     const { collectionId } = req.body;
-    console.log(collectionId);
     try {
         const isCollectionExists = await redisClient.keys(`${collectionId}-*`);
         if (isCollectionExists.length > 0) {

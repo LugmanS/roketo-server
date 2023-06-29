@@ -5,7 +5,7 @@ export const sampleEndpointValue = {
     },
     body: JSON.stringify({
         "message": "Hello Houston, Roketo 🚀 takeoff confirmed!"
-    }),
+    }).toString(),
     path: "/",
     statusCode: 200
 };

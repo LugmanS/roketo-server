@@ -65,7 +65,7 @@ app.use(async (req, res, next) => {
 });
 
 //CRUD for endpoints
-app.get('/api/collection/:collectionId', async (req, res) => {
+app.get('/collections/:collectionId', async (req, res) => {
     const { collectionId } = req.params;
     if (!collectionId) {
         return res.status(400).json({ message: "Invalid collection ID" });
@@ -83,7 +83,7 @@ app.get('/api/collection/:collectionId', async (req, res) => {
     }
 });
 
-app.post("/api/collection/", async (req, res) => {
+app.post("/collections/", async (req, res) => {
     const { collectionId } = req.body;
     console.log(collectionId);
     try {
@@ -99,7 +99,7 @@ app.post("/api/collection/", async (req, res) => {
     }
 });
 
-app.post("/api/collection/:collectionId/endpoint", async (req, res) => {
+app.post("/collections/:collectionId/endpoint", async (req, res) => {
     const { collectionId } = req.params;
     const { method, path, headers, body, statusCode } = req.body;
 
@@ -116,7 +116,7 @@ app.post("/api/collection/:collectionId/endpoint", async (req, res) => {
     }
 });
 
-app.put("/api/collection/:collectionId/endpoint/:endpointId", async (req, res) => {
+app.put("/collections/:collectionId/endpoint/:endpointId", async (req, res) => {
     const { collectionId, endpointId } = req.params;
     const { method, path, headers, body, statusCode } = req.body;
 
@@ -140,7 +140,7 @@ app.put("/api/collection/:collectionId/endpoint/:endpointId", async (req, res) =
     }
 });
 
-app.delete("/api/collection/:collectionId/endpoint/:endpointId", async (req, res) => {
+app.delete("/collections/:collectionId/endpoint/:endpointId", async (req, res) => {
     const { endpointId } = req.params;
     if (!endpointId) {
         return res.status(400).json({ message: "Endpoint ID required" });

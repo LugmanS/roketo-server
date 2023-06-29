@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  nginx:
+    container_name: nginx
+    image: nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx.conf/:/etc/nginx/conf.d/default.conf
+      - ./ssl/:/usr/share/nginx/ssl/
+    links:
+      - roketo-server
+  roketo-server:
+    container_name: roketo-server
+    image: lugman/roketo-server:1.0.4
+    ports:
+      - "8000:8000"
+    restart: always
+    environment:
+      - REDIS_DB_URL={{redis-database-uri}}
